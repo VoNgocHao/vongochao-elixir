@@ -1,10 +1,10 @@
 use Mix.Config
 
 # Configure your database
-config :project_management_example, ProjectManagementExample.Repo,
+config :chat, Chat.Repo,
   username: "postgres",
-  password: "123456",
-  database: "project_management_example_dev",
+  password: "postgres",
+  database: "chat_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -15,7 +15,7 @@ config :project_management_example, ProjectManagementExample.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :project_management_example, ProjectManagementExampleWeb.Endpoint,
+config :chat, ChatWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -55,13 +55,13 @@ config :project_management_example, ProjectManagementExampleWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :project_management_example, ProjectManagementExampleWeb.Endpoint,
+config :chat, ChatWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/project_management_example_web/(live|views)/.*(ex)$",
-      ~r"lib/project_management_example_web/templates/.*(eex)$"
+      ~r"lib/chat_web/(live|views)/.*(ex)$",
+      ~r"lib/chat_web/templates/.*(eex)$"
     ]
   ]
 

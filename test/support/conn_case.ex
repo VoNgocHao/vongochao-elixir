@@ -1,4 +1,4 @@
-defmodule ProjectManagementExampleWeb.ConnCase do
+defmodule ChatWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -11,7 +11,7 @@ defmodule ProjectManagementExampleWeb.ConnCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use ProjectManagementExampleWeb.ConnCase, async: true`, although
+  by setting `use ChatWeb.ConnCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -22,20 +22,20 @@ defmodule ProjectManagementExampleWeb.ConnCase do
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
-      import ProjectManagementExampleWeb.ConnCase
+      import ChatWeb.ConnCase
 
-      alias ProjectManagementExampleWeb.Router.Helpers, as: Routes
+      alias ChatWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint ProjectManagementExampleWeb.Endpoint
+      @endpoint ChatWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ProjectManagementExample.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Chat.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(ProjectManagementExample.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Chat.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

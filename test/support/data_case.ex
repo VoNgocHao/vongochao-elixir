@@ -1,4 +1,4 @@
-defmodule ProjectManagementExample.DataCase do
+defmodule Chat.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -10,7 +10,7 @@ defmodule ProjectManagementExample.DataCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use ProjectManagementExample.DataCase, async: true`, although
+  by setting `use Chat.DataCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -18,20 +18,20 @@ defmodule ProjectManagementExample.DataCase do
 
   using do
     quote do
-      alias ProjectManagementExample.Repo
+      alias Chat.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import ProjectManagementExample.DataCase
+      import Chat.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ProjectManagementExample.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Chat.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(ProjectManagementExample.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Chat.Repo, {:shared, self()})
     end
 
     :ok

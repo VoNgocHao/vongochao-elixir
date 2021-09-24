@@ -7,16 +7,16 @@
 # General application configuration
 use Mix.Config
 
-config :project_management_example,
-  ecto_repos: [ProjectManagementExample.Repo]
+config :chat,
+  ecto_repos: [Chat.Repo]
 
 # Configures the endpoint
-config :project_management_example, ProjectManagementExampleWeb.Endpoint,
+config :chat, ChatWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "Sv8H00TKB2+J+Ck+FsjWW85SBZk1itEMAcYYi5IsCWKuomMBvuySQ3e64h0yfwbr",
-  render_errors: [view: ProjectManagementExampleWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: ProjectManagementExample.PubSub,
-  live_view: [signing_salt: "9pIjNhqQ"]
+  secret_key_base: "6OFS0/PTjxt7qG4rj5zC2WmrpEZOTQSA0n0w3jILDKXiJB4LoqiMGzsuSytDBmvV",
+  render_errors: [view: ChatWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Chat.PubSub,
+  live_view: [signing_salt: "zlw3ir6l"]
 
 # Configures Elixir's Logger
 config :logger, :console,
